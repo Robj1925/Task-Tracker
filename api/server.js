@@ -38,5 +38,15 @@ mongoose
 
     res.json(result);
   })
+
+  app.put('/todo/complete/:id', async (req, res) => {
+    const todo = await Todo.findById(req.params.id); 
+
+    todo.complete = !todo.complete;
+
+    todo.save();
+
+    res.json(todo);
+  })
   app.listen(3001, () => console.log("Server stated on poort 3001"));
 
