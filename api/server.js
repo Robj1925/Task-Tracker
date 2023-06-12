@@ -24,7 +24,7 @@ mongoose
 
   });
 
-  app.post('/todo/new', (req, res) => {
+  app.post ('/todo/new', (req, res) => {
       const todo = new Todo({
         text: req.body.text
       });
@@ -32,5 +32,11 @@ mongoose
       todo.save();
       res.json(todo);
   });
+
+  app.delete('/todo/delete/:id', async  (req, res) => {
+    const result = await Todo.findByIdAndDelete(req.params.id);
+
+    res.json(result);
+  })
   app.listen(3001, () => console.log("Server stated on poort 3001"));
 

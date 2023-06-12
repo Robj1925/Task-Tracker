@@ -3,4 +3,16 @@ GET http://localhost:3001/todos
 
 ###
 
-//POST http
+POST http://localhost:3001/todo/new
+Content-Type: application/json
+
+
+{
+    "text":"Testing"
+}
+
+
+###
+
+
+DELETE http://localhost:3001/todo/delete/64879444bcf9b351d77d19d7
